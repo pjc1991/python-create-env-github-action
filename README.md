@@ -54,6 +54,12 @@ source venv/bin/activate && python3.9 -m pip install -r requirements.txt
 # only if you copied requirements.txt for virtual environment
 ```
 
+### 4. Create GitHub Token
+
+1. Go to Settings > Developer settings > Personal access tokens > Tokens (classic) > Generate new token
+2. Name your token and give it repo scope and write:packages scope.
+3. Copy your token and save it somewhere safe. (It will be written to .env file later.)
+
 ### 4. Create .env file
 
 ```shell
@@ -67,7 +73,7 @@ SECRET_KEY1=secret_key1
 SECRET_KEY2=secret_key2
 # the following secrets is required for this script to work
 ___GITHUB_REPOSITORY___=your_id_or_organization/your_repository
-___GITHUB_TOKEN___=your_github_token_with_repo_scope_and_so_on
+___GITHUB_TOKEN___=your_github_token_with_repo_scope_and_so_on # see 4. Create GitHub Token
 ___GITHUB_ACTION_WORKFLOW_PATH___=.github/workflows/deploy.yml # example
 # create_dotenv.py will not upload secrets that start with ___
 ```
