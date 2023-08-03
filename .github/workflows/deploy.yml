@@ -1,0 +1,40 @@
+name: Deploy Develop Environment
+
+on:
+  push:
+    branches:
+    - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: CREATE_DOT_ENV_FILE
+        # echoing .env files going here
+      run: |
+        echo "This will be replaced by the script."
+
+
+    - name: Check credential
+      run: |
+        sudo aws configure list-profiles
+
+    - name: Fake Deploy
+      run: |-
+        echo "Yes, I am deploying."
+        echo "I am deploying! This is not a fake!"
+        echo "Trust me, I am a computer, I know what I am doing."
+        echo "As a sincere partner of Microsoft, with the glorious name of GitHub Runners, I am deploying."
+        echo "Sorry, it was a joke. I am not deploying."
+        echo "$ ls -al"
+        ls -al
+        echo "See, I am not deploying and I just wrote a .env file, that's all."
