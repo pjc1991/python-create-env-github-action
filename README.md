@@ -40,6 +40,7 @@ cp python-create-env-github-action/requirements.txt {your-project-path}
 # if your project is using python already, you shouldn't copy requirements.txt
 # just install required libraries to your project's virtual environment on your own
 # or you could make second virtual environment for this script only. (Really?)
+# Actually, if your project is using python, copying and pasting create_dotenv.py to your project will be enough.
 ```
 
 ### 3. Install python3.9 and create virtual environment (if you don't have one already)
