@@ -9,6 +9,13 @@ and your workflow will be edited to use the secrets from GitHub Actions by creat
 
 I was tired of copying and pasting my .env file to GitHub Actions, and updating my workflow with tons of echo commands.
 
+## What does this script solve?
+
+1. You don't have to copy and paste your .env file to GitHub Actions.
+2. You don't have to update your workflow file with echo commands.
+3. .env file will be created at GitHub Actions Runner, so you don't have to worry about your .env file being exposed to the public.
+4. Whenever you modify your .env file, you can run this script again to update your GitHub Secrets and your workflow file.
+
 ## How does it work?
 
 1. This script will read your .env file and upload every secret to GitHub Actions, except for secrets that start with ___.
@@ -31,7 +38,8 @@ git clone https://github.com/pjc1991/python-create-env-github-action.git
 cp python-create-env-github-action/create_dotenv.py {your-project-path}
 cp python-create-env-github-action/requirements.txt {your-project-path} 
 # if your project is using python already, you shouldn't copy requirements.txt
-# just install requirements modules to your project's virtual environment on your own
+# just install required libraries to your project's virtual environment on your own
+# or you could make second virtual environment for this script only. (Really?)
 ```
 
 ### 3. Install python3.9 and create virtual environment (if you don't have one already)
@@ -41,10 +49,8 @@ sudo apt install python3.9
 # if you don't have python3.9 already
 
 python3.9 -m venv venv
-# if you don't have virtual environment already
-
 source venv/bin/activate && python3.9 -m pip install -r requirements.txt
-# only if you copied requirements.txt
+# only if you copied requirements.txt for virtual environment
 ```
 
 ### 4. Create .env file
